@@ -14,17 +14,11 @@ from rasa_sdk.executor import CollectingDispatcher
 
 
 class ActionReqApi(Action):
-
     def name(self) -> Text:
         return "action_req_api"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-    	id = 1174043788
-		t = rq.get(f"https://api.opendota.com/api/players/{id}")
-
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        id = 1174043788
+        t = rq.get(f"https://api.opendota.com/api/players/{id}")
         dispatcher.utter_message(text=str(t.json()))
-
         return []
