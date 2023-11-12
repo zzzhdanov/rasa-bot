@@ -2,10 +2,13 @@ version: "3.1"
 
 intents:
   - greet
-  - goodbye
+  - fetch_id
+  - test_ent
+  - get_brief_info
 
 entities:
   - id
+  - quantity
 
 slots:
   id:
@@ -13,31 +16,15 @@ slots:
     mappings:
       - type: from_entity
         entity: id
-        intent: rec_my_name
+        intent: fetch_id
 
 actions:
-  - action_req_api
+  - action_fetch_id
+  - action_brief_info
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
 
 
 session_config:

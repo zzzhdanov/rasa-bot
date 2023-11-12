@@ -17,14 +17,6 @@ nlu:
     - goodevening
     - good afternoon
 
-
-- intent: fetch_id
-  examples: |
-    - My ID is [1174043788](id)
-    - ID [1174043788](id)
-    - [1174043788](id) is my ID
-    - My account is [1174043788](id)
-
 - intent: goodbye
   examples: |
     - cu
@@ -37,5 +29,35 @@ nlu:
     - see you around
     - bye bye
     - see you later
+
+
+
+- intent: fetch_id
+  examples: |
+    - My ID is [1174043788](id)
+    - ID [1174043788](id)
+    - [1174043788](id) is my ID
+    - My account is [1174043788](id)
+
+
+- intent: get_brief_info
+  examples: |
+    - Get my info
+    - Give me information about my account
+    - I want to know my account information
+    - Brief information
+
+
+
+# - intent: test_ent
+#   examples: |
+#     - Give me last [5](quantity) matches
+#     - I want to know my last [8](quantity) matches
+#     - Show me last [10](quantity)
+
+
+
+
+
 
 

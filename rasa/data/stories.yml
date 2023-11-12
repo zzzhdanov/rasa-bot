@@ -2,9 +2,11 @@ version: "3.1"
 
 stories:
 
-- story: test_api
+- story: main
   steps:
   - intent: greet
   - action: utter_greet
   - intent: fetch_id
-  - action: action_req_api
+  - action: action_fetch_id
+  - intent: get_brief_info
+  - action: action_brief_info
