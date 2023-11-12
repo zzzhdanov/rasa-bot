@@ -5,4 +5,6 @@ stories:
 - story: test_api
   steps:
   - intent: greet
+  - action: utter_greet
+  - intent: fetch_id
   - action: action_req_api

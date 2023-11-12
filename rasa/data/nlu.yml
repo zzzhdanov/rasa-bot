@@ -17,6 +17,14 @@ nlu:
     - goodevening
     - good afternoon
 
+
+- intent: fetch_id
+  examples: |
+    - My ID is [1174043788](id)
+    - ID [1174043788](id)
+    - [1174043788](id) is my ID
+    - My account is [1174043788](id)
+
 - intent: goodbye
   examples: |
     - cu

@@ -4,6 +4,17 @@ intents:
   - greet
   - goodbye
 
+entities:
+  - id
+
+slots:
+  id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: id
+        intent: rec_my_name
+
 actions:
   - action_req_api
 
