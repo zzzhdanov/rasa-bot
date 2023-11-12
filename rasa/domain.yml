@@ -3,11 +3,9 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+
+actions:
+  - action_req_api
 
 responses:
   utter_greet:
@@ -28,6 +26,8 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+
 
 session_config:
   session_expiration_time: 60
