@@ -18,16 +18,11 @@ class ActionReqApi(Action):
         return "action_req_api"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-<<<<<<< HEAD
-        
 
         id = tracker.get_slot("id")
         t = rq.get(f"https://api.opendota.com/api/players/{id}")
-        dispatcher.utter_message(text=str(t.json()))
+        if 'profile' in t.json().keys():
+            dispatcher.utter_message(text=f"Ok,I understand. Your ID is {id}. You can ask me further")
+        else:
+            dispatcher.utter_message(text=f"Your id is invalid")
         return []
-=======
-        id = 1174043788
-        t = rq.get(f"https://api.opendota.com/api/players/{id}")
-        dispatcher.utter_message(text=str(t.json()))
-        return []
->>>>>>> 7dddb1172a30d4b20639ff68729a1b39b865074e

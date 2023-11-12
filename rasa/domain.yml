@@ -3,6 +3,7 @@ version: "3.1"
 intents:
   - greet
   - goodbye
+  - fetch_id
 
 entities:
   - id
@@ -13,7 +14,7 @@ slots:
     mappings:
       - type: from_entity
         entity: id
-        intent: rec_my_name
+        intent: fetch_id
 
 actions:
   - action_req_api
