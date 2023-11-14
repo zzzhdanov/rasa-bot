@@ -2,3 +2,15 @@ version: "3.1"
 
 rules:
 
+- rule: Get matches
+  steps:
+  - intent: get_matches
+  - action: action_get_matches
+
+
+- rule: Get heroes
+  steps:
+  - intent: get_heroes
+  - action: action_get_heroes
+
+

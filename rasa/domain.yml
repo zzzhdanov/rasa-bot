@@ -3,12 +3,16 @@ version: "3.1"
 intents:
   - greet
   - fetch_id
-  - test_ent
   - get_brief_info
+  - get_teammates
+  - get_matches
+  - get_heroes
+  - test_syn
 
 entities:
   - id
   - quantity
+  - sort_field
 
 slots:
   id:
@@ -21,6 +25,10 @@ slots:
 actions:
   - action_fetch_id
   - action_brief_info
+  - action_get_teammates
+  - action_get_matches
+  - action_get_heroes
+  - action_test_syn
 
 responses:
   utter_greet:

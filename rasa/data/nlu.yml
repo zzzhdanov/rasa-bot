@@ -1,6 +1,23 @@
 version: "3.1"
 
 nlu:
+
+# - synonym: wrate
+#   examples: |
+#     - wr
+#     - wrate
+#     - win_rate
+#     - winrate
+#     - wins
+#     - number of wins
+
+# - synonym: games
+#   examples: |
+#     - games
+#     - number of games
+#     - gs
+
+
 - intent: greet
   examples: |
     - hey
@@ -46,6 +63,40 @@ nlu:
     - Give me information about my account
     - I want to know my account information
     - Brief information
+
+
+- intent: get_teammates
+  examples: |
+    - Get my [5](quantity) best teammates
+    - Give me information about [7](quantity) best teammates
+    - I want to know [3](quantity) best teammates
+    - Top [4](quantity) teammates
+
+
+- intent: get_matches
+  examples: |
+    - Get my [5](quantity) last matches
+    - Give me information about [1](quantity) matches
+    - I want to know [4](quantity) matches
+    - Show [4](quantity) matches
+    - Find out the statistics of the last [3](quantity) matches
+    - Last [3](quantity) matches
+
+
+- intent: get_heroes
+  examples: |
+    - Get my [5](quantity) best heroes
+    - Give me information about my  [1](quantity) heroes
+    - Top [3](quantity) of my best heroes
+
+
+- intent: test_syn
+  examples: |
+    - Sort by [wins](sort_field)
+    - Order by [number of games](sort_field)
+    - Sort by [wr](sort_field)
+    - Order by [gs](sort_field)
+
 
 
 

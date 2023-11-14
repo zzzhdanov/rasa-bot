@@ -10,3 +10,33 @@ stories:
   - action: action_fetch_id
   - intent: get_brief_info
   - action: action_brief_info
+
+
+- story: second
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: fetch_id
+  - action: action_fetch_id
+  - intent: get_teammates
+  - action: action_get_teammates
+
+- story: third
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: fetch_id
+  - action: action_fetch_id
+  - intent: get_matches
+  - action: action_get_matches
+
+# - story: test
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: test_syn
+#   - action: action_test_syn
+
+
+
+

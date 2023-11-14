@@ -6,9 +6,16 @@ authors = ["Daniil Zhdanov <zhdanov.daniil7@wb.ru>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10.*"
-rasa = "^3.6.13"
+python = "~3.8"
+rasa = {extras = ["spacy"], version = "^3.6.13"}
+rasa-x = {version = "^1.1.4", source = "foo"}
 
+
+
+[[tool.poetry.source]]
+name = "foo"
+url = "https://pypi.rasa.com/simple"
+priority = "supplemental"
 
 [build-system]
 requires = ["poetry-core"]
