@@ -30,12 +30,6 @@ stories:
   - intent: get_matches
   - action: action_get_matches
 
-# - story: test
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: test_syn
-#   - action: action_test_syn
 
 
 

@@ -4,6 +4,8 @@ class Player:
 
 	api = "https://api.opendota.com/api"
 
+	heroes_map = rq.get(f"{api}/heroes").json()
+
 	def __init__(self, id):
 		self.id = id
 		self.info = rq.get(f"{Player.api}/players/{self.id}").json()
@@ -18,11 +20,12 @@ class Player:
 		primary_api_info = self.info
 		secondary_api_info = rq.get(f"{Player.api}/players/{self.id}/wl").json()
 
-		win_rate = round(secondary_api_info["win"] / (secondary_api_info["win"] + secondary_api_info["lose"]), 2)
+		win_rate = round(secondary_api_info["win"] / (secondary_api_info["win"] + secondary_api_info["lose"]) * 100, 2)
 
-		result = f"Nickname --- {primary_api_info['profile']['personaname']} \n" \
-				 f"Rating --- {primary_api_info['mmr_estimate']['estimate']} \n" \
-				 f"Win Rate --- {win_rate} \n" \
+		result = f"ID ---------------------- {primary_api_info['profile']['account_id']} \n" \
+		         f"Nickname ---------------- {primary_api_info['profile']['personaname']} \n" \
+				 f"Rating ------------------ {primary_api_info['mmr_estimate']['estimate']} \n" \
+				 f"WRate ------------------- {win_rate}% \n" \
 				 f"DotaPlus Subscription --- {primary_api_info['profile']['plus']}"
 
 
@@ -32,9 +35,12 @@ class Player:
 	def get_teammates(self, value):
 
 		def peer_info(item):
-			return f"Nickname --- {item['personaname']} \n" \
-		 		   f"Games --- {item['games']} \n" \
-		           f"Win  --- {item['with_win']} \n"
+			win_rate = round(item["win"] / item["games"] * 100, 2)
+
+			return f"ID --------- {item['account_id']} \n" \
+			       f"Nickname --- {item['personaname']} \n" \
+		 		   f"Games ------ {item['games']} \n" \
+		           f"WRate ------ {win_rate}% \n"
 
 		peers = sorted(rq.get(f"{Player.api}/players/{self.id}/peers").json(), key=lambda x: x["games"], reverse=True)[:value]
 
@@ -46,11 +52,13 @@ class Player:
 	def get_matches(self, value):
 
 		def matches_info(item):
-			return f"ID --- {item['match_id']} \n" \
-		 		   f"Duration --- {item['match_id']} \n" \
-		           f"Game mode  --- {item['game_mode']} \n" \
-		           f"Hero  --- {item['hero_id']} \n" \
-		           f"Party size  --- {item['party_size']} \n" 
+			psize = 0 if not item['party_size'] else item['party_size']
+			hname = list(filter(lambda x: x['id'] == item['hero_id'],Player.heroes_map))[0]['localized_name']
+
+			return f"ID ----------- {item['match_id']} \n" \
+		           f"Game mode ---- {item['game_mode']} \n" \
+		           f"Hero --------- {hname} \n" \
+		           f"Party size --- {psize} \n" 
 
 		matches = rq.get(f"{Player.api}/players/{self.id}/recentMatches").json()[:value]
 
@@ -61,9 +69,12 @@ class Player:
 	def get_heroes(self, value):
 
 		def heroes_info(item):
-			return f"ID --- {item['hero_id']} \n" \
+			win_rate = round(item["win"] / item["games"] * 100, 2)
+			hname = list(filter(lambda x: x['id'] == item['hero_id'],Player.heroes_map))[0]['localized_name']
+
+			return f"Name ---- {hname} \n" \
 		 		   f"Games --- {item['games']} \n" \
-		           f"Wins  --- {item['with_win']} \n" 
+		           f"WRate --- {win_rate}% \n" 
 
 		heroes = sorted(rq.get(f"{Player.api}/players/{self.id}/heroes").json(), key=lambda x: x["games"], reverse=True)[:value]
 
@@ -74,6 +85,8 @@ class Player:
 
 
 
+a = Player(162334994)
+print(a.get_brief_info())
 
 
 

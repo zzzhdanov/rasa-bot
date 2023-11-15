@@ -4,8 +4,8 @@ id = 162334994
 api = "https://api.opendota.com/api"
 
 
-# t = rq.get(f"{api}/players/{id}/peers").json()
-
+# t = rq.get(f"{api}/players/{id}/counts").json()
+# print(t)
 # sor = sorted(t, key = lambda x: x["games"], reverse=True)
 
 # for i in sor:
@@ -33,8 +33,12 @@ pt = [te() for _ in range(10)]
 
 # print(str("------------------- \n".join(pt)))
 
-print(int("5"))
+# print(int("5"))
 
-l = [1,2,3,4]
+# l = [1,2,3,4]
 
-print(l[:1000])
+# print(l[:1000])
+
+
+i = 7439337075
+print(i/3600)
