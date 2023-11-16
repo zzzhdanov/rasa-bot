@@ -94,12 +94,6 @@ class Player:
 
 
 
-
-# a = Player(162334994)
-# print(a.get_heroes(3, "wrate"))
-
-
-
 		
 
 

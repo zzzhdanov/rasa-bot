@@ -2,6 +2,7 @@ version: "3.1"
 
 intents:
   - greet
+  - goodbye
   - fetch_id
   - get_brief_info
   - get_teammates
@@ -31,7 +32,9 @@ actions:
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hello. I'm a bot that will help you track statistics on your game account. Please enter your ID"
+  utter_goodbye:
+  - text: "Bye! I hope you'll come back again"
 
 
 session_config:

@@ -10,6 +10,12 @@ stories:
   - action: action_fetch_id
   - intent: get_brief_info
   - action: action_brief_info
+  - intent: get_teammates
+  - action: action_get_teammates
+  - intent: get_matches
+  - action: action_get_matches
+  - intent: goodbye
+  - action: utter_goodbye
 
 
 - story: second
@@ -20,6 +26,9 @@ stories:
   - action: action_fetch_id
   - intent: get_teammates
   - action: action_get_teammates
+  - intent: goodbye
+  - action: utter_goodbye
+
 
 - story: third
   steps:
@@ -29,6 +38,8 @@ stories:
   - action: action_fetch_id
   - intent: get_matches
   - action: action_get_matches
+  - intent: goodbye
+  - action: utter_goodbye
 
 
 

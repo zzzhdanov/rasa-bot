@@ -2,6 +2,27 @@ version: "3.1"
 
 rules:
 
+- rule: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Get ID
+  steps:
+  - intent: fetch_id
+  - action: action_fetch_id
+
+- rule: Get teammates
+  steps:
+  - intent: get_teammates
+  - action: action_get_teammates
+
+
 - rule: Get matches
   steps:
   - intent: get_matches

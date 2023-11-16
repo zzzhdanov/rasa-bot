@@ -115,42 +115,5 @@ class ActionGetHeroes(Action):
 
         return []
 
-# class ActionGetTeammates(Action):
-#     def name(self) -> Text:
-#         return "action_test_syn"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        
-#         field = tracker.latest_message["entities"]
-
-#         dispatcher.utter_message(text=str(field))
-
-
-#         return []
-
-# class ActionFallback(Action):
-#     def name(self) -> Text:
-#         return "action_fallback"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#         dispatcher.utter_message(text="sorry, can you please repharse your question and try again?")
-#         return []
-
-
-
-# class ActionTestEnt(Action):
-#     def name(self) -> Text:
-#         return "action_test_ent"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-#         quantity = tracker.latest_message["entities"][-1]["value"]
-        
-#         dispatcher.utter_message(text=f"This is your last \n{quantity} matches!")
-
-#         return []
-
 
 
