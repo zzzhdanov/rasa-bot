@@ -2,20 +2,20 @@ version: "3.1"
 
 nlu:
 
-# - synonym: wrate
-#   examples: |
-#     - wr
-#     - wrate
-#     - win_rate
-#     - winrate
-#     - wins
-#     - number of wins
+- synonym: wrate
+  examples: |
+    - wr
+    - wrate
+    - win_rate
+    - winrate
+    - wins
+    - number of wins
 
-# - synonym: games
-#   examples: |
-#     - games
-#     - number of games
-#     - gs
+- synonym: games
+  examples: |
+    - games
+    - number of games
+    - gs
 
 
 - intent: greet
@@ -67,10 +67,18 @@ nlu:
 
 - intent: get_teammates
   examples: |
-    - Get my [5](quantity) best teammates
-    - Give me information about [7](quantity) best teammates
-    - I want to know [3](quantity) best teammates
-    - Top [4](quantity) teammates
+    - Get my [5](quantity) best teammates by [wins](sort_field)
+    - Get my [5](quantity) best teammates judging by [wr](sort_field)
+    - Get my [5](quantity) best teammates by [gs](sort_field)
+    - Give me information about [7](quantity) best teammates by [wins](sort_field)
+    - Give me information about [7](quantity) best teammates judging by [number of games](sort_field)
+    - Give me information about [7](quantity) best teammates by [gs](sort_field)
+    - I want to know [3](quantity) best teammates by [wins](sort_field)
+    - I want to know [3](quantity) best teammates judging by [number of games](sort_field)
+    - I want to know [3](quantity) best teammates by [gs](sort_field)
+    - Top [4](quantity) teammates by [wins](sort_field)
+    - Top [4](quantity) teammates judging by [number of games](sort_field)
+    - Top [4](quantity) teammates by [gs](sort_field)
 
 
 - intent: get_matches
@@ -85,26 +93,20 @@ nlu:
 
 - intent: get_heroes
   examples: |
-    - Get my [5](quantity) best heroes
-    - Give me information about my  [1](quantity) heroes
-    - Top [3](quantity) of my best heroes
+    - Get my [5](quantity) best heroes sort by [wins](sort_field)
+    - Get my [5](quantity) best heroes sort by [wr](sort_field)
+    - Get my [5](quantity) best heroes order by [gs](sort_field)
+    - Give me information about my  [1](quantity) heroes sort by [wins](sort_field)
+    - Give me information about my  [1](quantity) heroes sort by [wr](sort_field)
+    - Give me information about my  [1](quantity) heroes order by [gs](sort_field)
+    - Top [3](quantity) of my best heroes by [wins](sort_field)
+    - Top [3](quantity) of my best heroes by [number of games](sort_field)
+    - Top [3](quantity) of my best heroes by [wr](sort_field)
+    - Top [3](quantity) of my best heroes by [gs](sort_field)
 
 
-- intent: test_syn
-  examples: |
-    - Sort by [wins](sort_field)
-    - Order by [number of games](sort_field)
-    - Sort by [wr](sort_field)
-    - Order by [gs](sort_field)
 
 
-
-
-# - intent: test_ent
-#   examples: |
-#     - Give me last [5](quantity) matches
-#     - I want to know my last [8](quantity) matches
-#     - Show me last [10](quantity)
 
 
 

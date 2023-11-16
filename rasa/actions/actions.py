@@ -57,9 +57,17 @@ class ActionGetTeammates(Action):
             dispatcher.utter_message(text="Player ID is not defined. Please indicate your ID")
             return []
         
-        quantity = int(tracker.latest_message["entities"][-1]["value"])
+        quantity, sort_field = (3, "wrate")
+        entities = tracker.latest_message["entities"]
 
-        dispatcher.utter_message(text=Player(id).get_teammates(quantity))
+        for ent in entities:
+            if ent["entity"]=="quantity":
+                quantity = int(ent["value"])
+            if ent["entity"]=="sort_field":
+                sort_field = ent["value"]
+
+
+        dispatcher.utter_message(text=Player(id).get_teammates(quantity, sort_field))
 
 
         return []
@@ -94,9 +102,16 @@ class ActionGetHeroes(Action):
             dispatcher.utter_message(text="Player ID is not defined. Please indicate your ID")
             return []
         
-        quantity = int(tracker.latest_message["entities"][-1]["value"])
+        quantity, sort_field = (3, "wrate")
+        entities = tracker.latest_message["entities"]
 
-        dispatcher.utter_message(text=Player(id).get_heroes(quantity))
+        for ent in entities:
+            if ent["entity"]=="quantity":
+                quantity = int(ent["value"])
+            if ent["entity"]=="sort_field":
+                sort_field = ent["value"]
+
+        dispatcher.utter_message(text=Player(id).get_heroes(quantity, sort_field))
 
         return []
 

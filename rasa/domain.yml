@@ -7,7 +7,6 @@ intents:
   - get_teammates
   - get_matches
   - get_heroes
-  - test_syn
 
 entities:
   - id

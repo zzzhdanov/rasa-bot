@@ -32,7 +32,7 @@ class Player:
 		return result
 
 
-	def get_teammates(self, value):
+	def get_teammates(self, value, sort_field):
 
 		def peer_info(item):
 			win_rate = round(item["win"] / item["games"] * 100, 2)
@@ -42,7 +42,12 @@ class Player:
 		 		   f"Games ------ {item['games']} \n" \
 		           f"WRate ------ {win_rate}% \n"
 
-		peers = sorted(rq.get(f"{Player.api}/players/{self.id}/peers").json(), key=lambda x: x["games"], reverse=True)[:value]
+		field_map = {"wrate": lambda x: (x["win"]/ x["games"]) if x["games"] != 0 else 0,
+					 "games": lambda x: x["games"]}
+
+		sort_key = field_map.get(sort_field)
+
+		peers = sorted(rq.get(f"{Player.api}/players/{self.id}/peers").json(), key=sort_key, reverse=True)[:value]
 
 		result = "------------------------ \n".join([peer_info(item) for item in peers])
 
@@ -66,7 +71,7 @@ class Player:
 
 		return result
 
-	def get_heroes(self, value):
+	def get_heroes(self, value, sort_field):
 
 		def heroes_info(item):
 			win_rate = round(item["win"] / item["games"] * 100, 2)
@@ -76,7 +81,12 @@ class Player:
 		 		   f"Games --- {item['games']} \n" \
 		           f"WRate --- {win_rate}% \n" 
 
-		heroes = sorted(rq.get(f"{Player.api}/players/{self.id}/heroes").json(), key=lambda x: x["games"], reverse=True)[:value]
+		field_map = {"wrate": lambda x: (x["win"] / x["games"]) if x["games"] != 0 else 0,
+					 "games": lambda x: x["games"]}
+
+		sort_key = field_map.get(sort_field)
+
+		heroes = sorted(rq.get(f"{Player.api}/players/{self.id}/heroes").json(), key=sort_key, reverse=True)[:value]
 
 		result = "------------------------ \n".join([heroes_info(item) for item in heroes])
 
@@ -85,8 +95,8 @@ class Player:
 
 
 
-a = Player(162334994)
-print(a.get_brief_info())
+# a = Player(162334994)
+# print(a.get_heroes(3, "wrate"))
 
 
 
