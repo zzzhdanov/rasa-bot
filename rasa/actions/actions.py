@@ -114,6 +114,3 @@ class ActionGetHeroes(Action):
         dispatcher.utter_message(text=Player(id).get_heroes(quantity, sort_field))
 
         return []
-
-
-

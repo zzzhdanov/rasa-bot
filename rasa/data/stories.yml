@@ -40,8 +40,3 @@ stories:
   - action: action_get_matches
   - intent: goodbye
   - action: utter_goodbye
-
-
-
-
-

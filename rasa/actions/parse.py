@@ -60,9 +60,11 @@ class Player:
 			psize = 0 if not item['party_size'] else item['party_size']
 			hname = list(filter(lambda x: x['id'] == item['hero_id'],Player.heroes_map))[0]['localized_name']
 
+
 			return f"ID ----------- {item['match_id']} \n" \
 		           f"Game mode ---- {item['game_mode']} \n" \
 		           f"Hero --------- {hname} \n" \
+		           f"KDA ---- ----- {item['kills']}/{item['deaths']}/{item['assists']} \n" \
 		           f"Party size --- {psize} \n" 
 
 		matches = rq.get(f"{Player.api}/players/{self.id}/recentMatches").json()[:value]
@@ -91,9 +93,3 @@ class Player:
 		result = "------------------------ \n".join([heroes_info(item) for item in heroes])
 
 		return result
-
-
-
-		
-
-
